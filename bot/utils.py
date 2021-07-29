@@ -1,6 +1,6 @@
 from pyrogram.errors import UserNotParticipant
 
-AUTH_CHANNEL = None
+AUTH_CHANNEL = -1001558564079
 
 async def is_subscribed(_, client, message):
     user_id = message.from_user.id
