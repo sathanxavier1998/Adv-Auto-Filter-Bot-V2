@@ -88,6 +88,16 @@ async def help(bot, update):
         reply_to_message_id=update.message_id
     )
     
+main_text = """**🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭.
+
+Hey There Fellah, If You Need The Movie 
+
+Click The Button Below And Join Our [CT™] Cinemaathattakam Channel.😂
+
+Then Click The Refresh/Try Again Button And Press Start Here.🙃
+
+You Will Get The Movie..!😁**"""
+    
 @Client.on_message(filters.command(["start"]) & filters.private & ~ subscribed, group=1)
 async def nostart(bot, update):
     try:
@@ -95,25 +105,27 @@ async def nostart(bot, update):
     except IndexError:
         file_uid = False
     if file_id:
-        buttons = [[
-            InlineKeyboardButton('Refresh 🔃', callback_data=f'refresh_btn|{file_id}')
-        ]]
+        buttons = [
+            [InlineKeyboardButton('Join Channel', url='https://t.me/Cinemaathattakam_Links')],
+            [InlineKeyboardButton('Refresh 🔃', callback_data='refresh_btn|None')]
+        ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=update.chat.id,
-            text='You should join',
+            text=main_text,
             reply_markup=reply_markup,
             parse_mode="html",
             reply_to_message_id=update.message_id
         )
     else:
-        buttons = [[
-            InlineKeyboardButton('Refresh 🔃', callback_data='refresh_btn|None')
-        ]]
+        buttons = [
+            [InlineKeyboardButton('Join Channel', url='https://t.me/Cinemaathattakam_Links')],
+            [InlineKeyboardButton('Refresh 🔃', callback_data='refresh_btn|None')]
+        ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=update.chat.id,
-            text='You should join',
+            text=main_text,
             reply_markup=reply_markup,
             parse_mode="html",
             reply_to_message_id=update.message_id
