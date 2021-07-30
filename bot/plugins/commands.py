@@ -104,10 +104,10 @@ async def nostart(bot, update):
         file_uid = update.command[1]
     except IndexError:
         file_uid = False
-    if file_id:
+    if file_uid:
         buttons = [
             [InlineKeyboardButton('Join Channel', url='https://t.me/Cinemaathattakam_Links')],
-            [InlineKeyboardButton('Refresh 🔃', callback_data='refresh_btn|None')]
+            [InlineKeyboardButton('Refresh 🔃', callback_data=f'refresh_btn|{file_uid}')]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await bot.send_message(
