@@ -92,7 +92,7 @@ main_text = """<b>🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵�
 
 Hey There Fellah, If You Need The Movie 
 
-Click The Button Below And Join Our [CT™] Cinemaathattakam Channel.😂
+Click The Button Below And Join Our [CT™] Cinemaathattakam Links Channel.😂
 
 Then Click The Refresh/Try Again Button And Press Start Here.🙃
 
@@ -106,8 +106,8 @@ async def nostart(bot, update):
         file_uid = False
     if file_uid:
         buttons = [
-            [InlineKeyboardButton('Join Channel', url='https://t.me/Cinemaathattakam_Links')],
-            [InlineKeyboardButton('Refresh 🔃', callback_data=f'refresh_btn|{file_uid}')]
+            [InlineKeyboardButton('🔰Join Our Channel🔰', url='https://t.me/Cinemaathattakam_Links')],
+            [InlineKeyboardButton('Re-fresh 🔃', callback_data=f'refresh_btn|{file_uid}')]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await bot.send_message(
@@ -119,8 +119,8 @@ async def nostart(bot, update):
         )
     else:
         buttons = [
-            [InlineKeyboardButton('Join Channel', url='https://t.me/Cinemaathattakam_Links')],
-            [InlineKeyboardButton('Refresh 🔃', callback_data='refresh_btn|None')]
+            [InlineKeyboardButton('🔰Join Our Channel🔰', url='https://t.me/Cinemaathattakam_Links')],
+            [InlineKeyboardButton('Re-fresh 🔃', callback_data='refresh_btn|None')]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await bot.send_message(
