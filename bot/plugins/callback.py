@@ -53,7 +53,7 @@ async def btnreferesh(bot, update: CallbackQuery):
                 )
             )
         except Exception as e:
-            await update.reply_text(f"<b>Error:</b>\n<code>{e}</code>", True, parse_mode="html")
+            await update.answer(f"Error:\n{e}", show_alert=True)
             LOGGER(__name__).error(e)
         return
 
@@ -69,7 +69,7 @@ async def btnreferesh(bot, update: CallbackQuery):
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await bot.send_message(
-        chat_id=update.chat.id,
+        chat_id=update.from_user.id,
         text=Translation.START_TEXT.format(
                 update.from_user.first_name),
         reply_markup=reply_markup,
