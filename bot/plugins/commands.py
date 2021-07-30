@@ -88,7 +88,7 @@ async def help(bot, update):
         reply_to_message_id=update.message_id
     )
     
-main_text = """**🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭.
+main_text = """<b>🔊 𝗝𝗼𝗶𝗻 𝗢𝘂𝗿 𝗠𝗮𝗶𝗻 𝗰𝗵𝗮𝗻𝗻𝗲𝗹 🤭.
 
 Hey There Fellah, If You Need The Movie 
 
@@ -96,7 +96,7 @@ Click The Button Below And Join Our [CT™] Cinemaathattakam Channel.😂
 
 Then Click The Refresh/Try Again Button And Press Start Here.🙃
 
-You Will Get The Movie..!😁**"""
+You Will Get The Movie..!😁</b>"""
     
 @Client.on_message(filters.command(["start"]) & filters.private & ~ subscribed, group=1)
 async def nostart(bot, update):
