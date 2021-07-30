@@ -24,6 +24,10 @@ subscribed = filters.create(is_subscribed)
 
 db = Database()
 
+@Client.on_callback_query(filters.regex(r"^refresh_btn|[\w*]") & ~ subscribed, group=2)
+async def nobtnreferesh(bot, update: CallbackQuery):
+    await update.answer('Join the channel and Click Refresh',show_alert=True)
+
 @Client.on_callback_query(filters.regex(r"^refresh_btn|[\w*]") & subscribed, group=2)
 async def btnreferesh(bot, update: CallbackQuery):
     data = update.data
@@ -73,8 +77,7 @@ async def btnreferesh(bot, update: CallbackQuery):
         text=Translation.START_TEXT.format(
                 update.from_user.first_name),
         reply_markup=reply_markup,
-        parse_mode="html",
-        reply_to_message_id=update.message_id
+        parse_mode="html"
     )
 
 
