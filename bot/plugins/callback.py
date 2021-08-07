@@ -24,11 +24,11 @@ subscribed = filters.create(is_subscribed)
 
 db = Database()
 
-@Client.on_callback_query(filters.regex(r"^refresh_btn|[\w*]") & ~ subscribed & filters.private)
+@Client.on_callback_query(filters.regex(r"^refresh_btn|[\w*]$") & ~ subscribed)
 async def nobtnreferesh(bot, update: CallbackQuery):
     await update.answer('Join the channel and Click Refresh',show_alert=True)
 
-@Client.on_callback_query(filters.regex(r"^refresh_btn|[\w*]") & subscribed & filters.private)
+@Client.on_callback_query(filters.regex(r"^refresh_btn|[\w*]$") & subscribed)
 async def btnreferesh(bot, update: CallbackQuery):
     data = update.data
     file_uid = data.split('|',1)[1]
